@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 
 import Directory from '../../components/directory/directory.component';
 
-
 const Home = () => {
   return (
     <div>
@@ -10,6 +9,6 @@ const Home = () => {
       <Outlet />
     </div>
   );
-}
+};
 
 export default Home;

@@ -21,14 +21,14 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAAhaB_JkcLNZo7jeGW9_mIYkeIm58LP_o",
-    authDomain: "soundsync-426706.firebaseapp.com",
-    projectId: "soundsync-426706",
-    storageBucket: "soundsync-426706.appspot.com",
-    messagingSenderId: "299455983656",
-    appId: "1:299455983656:web:76738ae8e55ed7ba8d051d",
-    measurementId: "G-0TM1XRJN4F"
-  };
+  apiKey: "AIzaSyAAhaB_JkcLNZo7jeGW9_mIYkeIm58LP_o",
+  authDomain: "soundsync-426706.firebaseapp.com",
+  projectId: "soundsync-426706",
+  storageBucket: "soundsync-426706.appspot.com",
+  messagingSenderId: "299455983656",
+  appId: "1:299455983656:web:76738ae8e55ed7ba8d051d",
+  measurementId: "G-0TM1XRJN4F"
+};
 
 const firebaseApp = initializeApp(firebaseConfig);
 
@@ -68,13 +68,7 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-
-  return categoryMap;
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (
