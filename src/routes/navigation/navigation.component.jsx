@@ -1,3 +1,4 @@
+// src/routes/navigation/navigation.component.jsx
 import { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -38,6 +39,8 @@ const Navigation = () => {
           ) : (
             <NavLink to='/auth'>SIGN IN</NavLink>
           )}
+
+          <NavLink to='/accounts'>ACCOUNTS</NavLink>
           <CartIcon />
         </NavLinks>
         {isCartOpen && <CartDropdown />}
